@@ -1,0 +1,39 @@
+@use '../utils/' as util;
+
+$icon-size: 3rem;
+$border-radius: 99rem;
+$transition: all 300ms ease-in-out;
+
+$colors: (
+  icon--1: (
+    bg: util.clr('green-100'),
+    color: util.clr('green-50'),
+    border: util.clr('green-90')
+  ),
+  icon--2: (
+    bg: util.clr('blue-100'),
+    color: util.clr('blue-50'),
+    border: util.clr('blue-90')
+  ),
+  icon--3: (
+    bg: util.clr('purple-100'),
+    color: util.clr('purple-50'),
+    border: util.clr('purple-90')
+  )
+);
+
+.icon {
+  i {
+    font-size: $icon-size;
+    border-radius: $border-radius;
+    transition: $transition;
+  }
+
+  @each $icon, $values in $colors {
+    &.#{$icon} i:hover {
+      background-color: map-get($values, bg) !important;
+      color: map-get($values, color) !important;
+      border-color: map-get($values, border) !important;
+    }
+  }
+}

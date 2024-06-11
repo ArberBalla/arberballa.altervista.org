@@ -1,0 +1,5 @@
+@use "./variables" as *;
+
+@function clr($color) {
+	@return map-get($clr, $color);
+}

@@ -1,0 +1,36 @@
+{
+	"name": "portfolio",
+	"version": "3.0.0",
+	"description": "e-portfolio per l'esame si stato a.s. 2023/2024",
+	"main": "public/index.html",
+	"author": "Arber Balla",
+	"scripts": {
+		"build:sass": "sass --no-source-map src/assets/sass:public/assets/css",
+		"copy:pages": "copyfiles -u 1 ./src/pages/**/* public",
+		"copy:assets": "copyfiles -u 1 ./src/assets/**/* public",
+		"copy:html": "copyfiles -u 1 ./src/*.html public",
+		"copy": "npm-run-all --parallel copy:*",
+		"watch:pages": "onchange \"src/pages/**/*\" -- npm run copy:pages",
+		"watch:assets": "onchange \"src/assets/**/*\" -- npm run copy:assets",
+		"watch:html": "onchange \"src/*.html\" -- npm run copy:html",
+		"watch:sass": "sass --no-source-map --watch src/assets/sass:public/assets/css",
+		"watch": "npm-run-all --parallel watch:*",
+		"serve": "browser-sync start --server public --files public",
+		"start": "npm-run-all copy --parallel watch serve",
+		"build": "npm-run-all copy:html build:*",
+		"postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map"
+	},
+	"dependencies": {
+		"aos": "^2.3.4",
+		"autoprefixer": "^10.4.2",
+		"bootstrap": "^5.3.3",
+		"browser-sync": "^3.0.2",
+		"copyfiles": "^2.4.1",
+		"cssnano": "^5.0.17",
+		"npm-run-all": "^4.1.5",
+		"onchange": "^7.1.0",
+		"particles.js": "^2.0.0",
+		"postcss-cli": "^9.1.0",
+		"sass": "^1.49.8"
+	}
+}
