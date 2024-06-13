@@ -1,0 +1,20 @@
+#cv {
+	img {
+		max-height: 200px;
+	}
+
+	.col-left {
+		background-color: #DEE2E6;
+		/* border-top-left-radius: 30px;
+		border-bottom-left-radius: 30px; */
+	}
+
+	.caps {
+		text-transform: uppercase;
+	}
+
+	main {
+		box-shadow:  20px 20px 60px #d9d9d9,
+             -20px -20px 60px #ffffff;
+	}
+}
